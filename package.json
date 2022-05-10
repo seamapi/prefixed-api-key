@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
+  "description": "Generate seam-style API-keys",
+  "repository": "git@github.com:seamapi/prefixed-api-key.git",
   "scripts": {
     "build": "tsup --dts --clean -d dist src",
     "test": "ava"

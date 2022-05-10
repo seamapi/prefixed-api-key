@@ -4,7 +4,7 @@
 
 Seam-style API Keys have many advantages:
 
-- Double clicking the api key selects
+- Double clicking the api key selects the entire api key
 - The encoding/decoding is standard across languages thanks [to the base58 RFC](https://datatracker.ietf.org/doc/html/draft-msporny-base58) and it's usage in cryptocurrencies
 - They are shorter than hex and base32 api keys
 - They have prefixes [allowing secret scanning by github](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning)
