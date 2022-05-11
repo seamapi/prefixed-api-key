@@ -47,7 +47,7 @@ import { generateAPIKey } from "prefixed-api-key"
 const key = await generateAPIKey()
 
 // Store the key.longTokenHash and key.shortToken in your database and give
-// api.token to your customer.
+// key.token to your customer.
 
 console.log(key)
 /*
