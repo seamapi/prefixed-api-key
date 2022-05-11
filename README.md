@@ -32,10 +32,10 @@ Prefix             Short Token       Long Token
   This is very helpful in secret scanning.
 - The Short Token is stored by both the server and the key bearer/customer, it
   can be used to identify an API key in logs or displayed on a customer's
-  dashboard.
+  dashboard. A token can be blacklisted by its short token.
 - The Long Token is how we authenticate this key. The long token is never stored
   on the server, but a hash of it is stored on the server. When we receive an
-  incoming request, we search our database for `hash(long_token)`
+  incoming request, we search our database for `short_token` and `hash(long_token)`.
 
 ## Getting Started
 
