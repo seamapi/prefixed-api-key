@@ -2,6 +2,8 @@
 
 > Example key: `mycompany_BRTRKFsL_51FwqftsmMDHHbJAMEXXHCgG`
 
+> [See discussion on Hacker News](https://news.ycombinator.com/item?id=31333933#31336542)
+
 Seam-style API Keys have many advantages:
 
 - Double clicking the api key selects the entire api key
