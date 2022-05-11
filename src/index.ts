@@ -14,7 +14,7 @@ export interface GenerateAPIKeyOptions {
 }
 
 export const generateAPIKey = async ({
-  keyPrefix = "mycompany",
+  keyPrefix,
   shortTokenPrefix = "",
   shortTokenLength = 8,
   longTokenLength = 24,
