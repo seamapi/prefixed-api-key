@@ -19,6 +19,8 @@ export const generateAPIKey = async ({
   shortTokenLength = 8,
   longTokenLength = 24,
 }: GenerateAPIKeyOptions = {}) => {
+  if (!keyPrefix) return {}
+
   const [shortTokenBytes, longTokenBytes] = await Promise.all([
     // you need ~0.732 * length bytes, but it's fine to have more bytes
     promisify(randomBytes)(shortTokenLength),
