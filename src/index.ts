@@ -14,15 +14,18 @@ export interface GenerateAPIKeyOptions {
 }
 
 export const generateAPIKey = async ({
-  keyPrefix = "mycompany",
+  keyPrefix,
   shortTokenPrefix = "",
   shortTokenLength = 8,
   longTokenLength = 24,
 }: GenerateAPIKeyOptions = {}) => {
+  if (!keyPrefix) return {}
+
+  const generatedRandomBytes = promisify(randomBytes)
   const [shortTokenBytes, longTokenBytes] = await Promise.all([
     // you need ~0.732 * length bytes, but it's fine to have more bytes
-    promisify(randomBytes)(shortTokenLength),
-    promisify(randomBytes)(longTokenLength),
+    generatedRandomBytes(shortTokenLength),
+    generatedRandomBytes(longTokenLength),
   ])
 
   let shortToken = padStart(
