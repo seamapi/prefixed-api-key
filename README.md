@@ -1,8 +1,8 @@
 # Prefixed API Key (Seam-style)
 
 > Example key: `mycompany_BRTRKFsL_51FwqftsmMDHHbJAMEXXHCgG`
-
-> [See discussion on Hacker News](https://news.ycombinator.com/item?id=31333933#31336542)
+>
+> [Discussion on Hacker News](https://news.ycombinator.com/item?id=31333933#31336542) &middot; [Awesome Seam Open-Source](https://github.com/seamapi/awesome-seam)
 
 Seam-style API Keys have many advantages:
 
