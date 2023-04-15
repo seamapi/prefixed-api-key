@@ -18,3 +18,16 @@ test("generate api key should return an empty object when there is no keyPrefix"
   t.falsy(apiKey.shortToken)
   t.falsy(apiKey.token)
 })
+
+test("generate api key should return strings with the correct length", async (t) => {
+  const shortTokenLength = 10;
+  const longTokenLength = 20;
+  const apiKey = await generateAPIKey({
+    keyPrefix: "mycompany",
+    shortTokenLength: shortTokenLength,
+    longTokenLength: longTokenLength,
+  })
+
+  t.truthy(apiKey.longToken && apiKey.longToken.length === longTokenLength)
+  t.truthy(apiKey.shortToken && apiKey.shortToken.length === shortTokenLength)
+})

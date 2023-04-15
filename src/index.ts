@@ -1,7 +1,6 @@
 import { randomBytes, createHash } from "node:crypto"
 import { promisify } from "node:util"
 import bs58 from "bs58"
-import padStart from "lodash/padStart"
 
 export const hashLongToken = (longToken: string) =>
   createHash("sha256").update(longToken).digest("hex")
@@ -28,14 +27,12 @@ export const generateAPIKey = async ({
     generatedRandomBytes(longTokenLength),
   ])
 
-  let shortToken = padStart(
-    bs58.encode(shortTokenBytes),
+  let shortToken = bs58.encode(shortTokenBytes).padStart(
     shortTokenLength,
     "0"
   ).slice(0, shortTokenLength)
 
-  const longToken = padStart(
-    bs58.encode(longTokenBytes),
+  const longToken = bs58.encode(longTokenBytes).padStart(
     longTokenLength,
     "0"
   ).slice(0, longTokenLength)
