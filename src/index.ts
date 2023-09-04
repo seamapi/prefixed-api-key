@@ -72,6 +72,6 @@ export const checkAPIKey = (
   expectedLongTokenHash: string
 ): boolean => {
   const expectedLongTokenHashBuffer = Buffer.from(expectedLongTokenHash, 'hex');
-  const inputLongTokenHash = hashLongTokenToBuffer(extractLongToken(token))
-  return timingSafeEqual(expectedLongTokenHashBuffer, inputLongTokenHash)
+  const inputLongTokenHashBuffer = hashLongTokenToBuffer(extractLongToken(token))
+  return timingSafeEqual(expectedLongTokenHashBuffer, inputLongTokenHashBuffer)
 }
