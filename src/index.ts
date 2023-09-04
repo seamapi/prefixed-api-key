@@ -1,10 +1,13 @@
-import { randomBytes, createHash } from "node:crypto"
+import { randomBytes, createHash, timingSafeEqual } from "node:crypto"
 import { promisify } from "node:util"
 import bs58 from "bs58"
 import padStart from "lodash/padStart"
 
-export const hashLongToken = (longToken: string) =>
-  createHash("sha256").update(longToken).digest("hex")
+const hashLongTokenToBuffer = (longToken: string): Buffer =>
+  createHash("sha256").update(longToken).digest();
+
+export const hashLongToken = (longToken: string): string =>
+  hashLongTokenToBuffer(longToken).toString('hex');
 
 export interface GenerateAPIKeyOptions {
   keyPrefix?: string
@@ -64,7 +67,11 @@ export const getTokenComponents = (token: string) => ({
   token,
 })
 
-export const checkAPIKey = async (
+export const checkAPIKey = (
   token: string,
   expectedLongTokenHash: string
-) => hashLongToken(extractLongToken(token)) === expectedLongTokenHash
+): boolean => {
+  const expectedLongTokenHashBuffer = Buffer.from(expectedLongTokenHash, 'hex');
+  const inputLongTokenHash = hashLongTokenToBuffer(extractLongToken(token))
+  return timingSafeEqual(expectedLongTokenHashBuffer, inputLongTokenHash)
+}
