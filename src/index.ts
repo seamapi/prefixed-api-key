@@ -55,7 +55,7 @@ export const generateAPIKey = async ({
 export const extractLongToken = (token: string) =>
   token.split("_").slice(-1)?.[0]
 
-export const extractShortToken = (token: string) => token.split("_")?.[1]
+export const extractShortToken = (token: string) => token.split("_").slice(-2)[0]
 
 export const extractLongTokenHash = (token: string) =>
   hashLongToken(extractLongToken(token))
