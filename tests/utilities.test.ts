@@ -15,6 +15,8 @@ const exampleKey = {
   token: "mycompany_BRTRKFsL_51FwqftsmMDHHbJAMEXXHCgG",
 }
 
+const tokenWithUnderScore = `mycompany_withunderscore_${exampleKey.shortToken}_${exampleKey.longToken}`
+
 test("hashLongToken", async (t) => {
   t.is(hashLongToken(exampleKey.longToken), exampleKey.longTokenHash)
 })
@@ -23,6 +25,7 @@ test("extractLongToken", async (t) => {
 })
 test("extractShortToken", async (t) => {
   t.is(extractShortToken(exampleKey.token), exampleKey.shortToken)
+  t.is(extractShortToken(tokenWithUnderScore), exampleKey.shortToken)
 })
 test("getTokenComponents", async (t) => {
   t.deepEqual(getTokenComponents(exampleKey.token), exampleKey)
